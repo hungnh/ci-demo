@@ -8,3 +8,5 @@ CREATE TABLE APP_USER
 );
 
 INSERT INTO APP_USER (EMAIL, FIRST_NAME, LAST_NAME, USERNAME) VALUES ('hungnh.uet@gmail.com', 'Jon', 'Snow', 'hungnh');
+INSERT INTO APP_USER (EMAIL, FIRST_NAME, LAST_NAME, USERNAME) VALUES ('robb.stark@gmail.com', 'Robb', 'Stark', 'robb');
+INSERT INTO APP_USER (EMAIL, FIRST_NAME, LAST_NAME, USERNAME) VALUES ('arya.stark@gmail.com', 'Arya', 'Stark', 'arya');
