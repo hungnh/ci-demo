@@ -1,4 +1,4 @@
-package uet.hungnh.ci;
+package uet.hungnh.ci.integrationtest;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
