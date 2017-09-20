@@ -9,16 +9,16 @@ import uet.hungnh.ci.persistence.entity.AppUser;
 import uet.hungnh.ci.persistence.repository.AppUserRepository;
 import uet.hungnh.ci.service.IUserService;
 
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
+
 @Service
 @Transactional(readOnly = true, rollbackFor = Exception.class)
 public class UserService implements IUserService {
 
-    private final AppUserRepository userRepository;
-
     @Autowired
-    public UserService(AppUserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+    private AppUserRepository userRepository;
 
     @Override
     public AppUser getById(Long id) throws ServiceException {
@@ -33,5 +33,13 @@ public class UserService implements IUserService {
     @Transactional(readOnly = false, rollbackFor = Exception.class)
     public AppUser create(AppUser user) {
         return userRepository.save(user);
+    }
+
+    @Override
+    public List<AppUser> getAllUsers() {
+        Iterable<AppUser> appUsers = userRepository.findAll();
+        return StreamSupport
+                .stream(appUsers.spliterator(), false)
+                .collect(Collectors.toList());
     }
 }
